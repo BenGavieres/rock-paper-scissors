@@ -47,3 +47,15 @@ function playRound(playerSelection,computerSelection) {
         }
     }
 }
+
+//Simulates a best-of-5 game
+function game(){
+    const NUM_ROUNDS=5;//Controls number of games
+    let playerChoice;
+    for (let i=0;i<NUM_ROUNDS;i++) {
+        playerChoice=prompt(`Round ${i+1}: Enter your selection: `);
+        playRound(playerChoice,getComputerChoice());
+    }
+}
+
+game();
