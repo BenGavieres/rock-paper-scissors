@@ -48,35 +48,33 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
-//Simulates a best-of-5 game
-function game(){
-    const NUM_ROUNDS=5;//Controls number of games
-    let playerScore=0,computerScore=0,playerChoice,outcome;
-    for (let i=0;i<NUM_ROUNDS;i++) {
-        playerChoice=prompt(`Round ${i+1}: Enter your selection: `);
-        outcome=playRound(playerChoice,getComputerChoice());
+// //Simulates a best-of-5 game
+// function game(){
+//     const NUM_ROUNDS=5;//Controls number of games
+//     let playerScore=0,computerScore=0,playerChoice,outcome;
+//     for (let i=0;i<NUM_ROUNDS;i++) {
+//         playerChoice=prompt(`Round ${i+1}: Enter your selection: `);
+//         outcome=playRound(playerChoice,getComputerChoice());
 
-        if (outcome=="win") {
-            playerScore++;
-        }
-        else if(outcome=="loss"){
-            computerScore++;
-        }
-        else {
-            playerScore++;
-            computerScore++;
-        }
-    }
-    console.log(`Final score: ${playerScore}-${computerScore}`);
-    if (playerScore>computerScore) {
-        console.log("You win!");
-    }
-    else if (playerScore<computerScore) {
-        console.log("You lose!");
-    }
-    else {
-        console.log("Draw");
-    }
-}
-
-game();
+//         if (outcome=="win") {
+//             playerScore++;
+//         }
+//         else if(outcome=="loss"){
+//             computerScore++;
+//         }
+//         else {
+//             playerScore++;
+//             computerScore++;
+//         }
+//     }
+//     console.log(`Final score: ${playerScore}-${computerScore}`);
+//     if (playerScore>computerScore) {
+//         console.log("You win!");
+//     }
+//     else if (playerScore<computerScore) {
+//         console.log("You lose!");
+//     }
+//     else {
+//         console.log("Draw");
+//     }
+// }
