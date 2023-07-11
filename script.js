@@ -11,41 +11,19 @@ function getComputerChoice() {
 
 //Simulates one round
 function playRound(playerSelection,computerSelection) {
-    const outcomeMessage=document.querySelector(".outcome-message");
-    console.log(outcomeMessage.id);
-    if (playerSelection==computerSelection){
+    if(playerSelection===computerSelection){
         outcomeMessage.textContent=`Draw! You both chose ${playerSelection}`;
         return "draw";
     }
-    else if (playerSelection=="rock"){
-        if (computerSelection=="paper") { 
-            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
-            return "loss";
-        }
-        else{  
-            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
-            return "win";
-        }
+    else if ((playerSelection==="rock"&&computerSelection==="scissors")
+        ||(playerSelection==="paper"&&computerSelection==="rock")
+        ||(playerSelection==="scissors"&&computerSelection==="paper")){
+        outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
+        return "win";
     }
-    else if (playerSelection=="paper") {
-        if (computerSelection=="rock") {
-            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
-            return "win";
-        }
-        else { 
-            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
-            return "loss";
-        }
-    }
-    else if (playerSelection=="scissors"){
-        if (computerSelection=="rock") { 
-            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
-            return "win";
-        }
-        else {
-            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
-            return "loss";
-        }
+    else {
+        outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
+        return "loss";
     }
 }
 
@@ -64,6 +42,7 @@ function displayWinner() {
 }
 
 let playerChoice,computerChoice,playerScore=0,computerScore=0;
+const outcomeMessage=document.querySelector(".outcome-message");
 const score=document.querySelector(".score");
 const NUM_ROUNDS=5;
 
