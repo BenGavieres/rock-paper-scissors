@@ -11,38 +11,39 @@ function getComputerChoice() {
 
 //Simulates one round
 function playRound(playerSelection,computerSelection) {
-    playerSelection=playerSelection.toLowerCase();
+    const outcomeMessage=document.querySelector(".outcome-message");
+    console.log(outcomeMessage.id);
     if (playerSelection==computerSelection){
-        console.log(`Draw! You both chose ${playerSelection}`);
+        outcomeMessage.textContent=`Draw! You both chose ${playerSelection}`;
         return "draw";
     }
     else if (playerSelection=="rock"){
         if (computerSelection=="paper") { 
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
             return "loss";
         }
         else{  
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
             return "win";
         }
     }
     else if (playerSelection=="paper") {
         if (computerSelection=="rock") {
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
             return "win";
         }
         else { 
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
             return "loss";
         }
     }
     else if (playerSelection=="scissors"){
         if (computerSelection=="rock") { 
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            outcomeMessage.textContent=`You win! ${playerSelection} beats ${computerSelection}`;
             return "win";
         }
         else {
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            outcomeMessage.textContent=`You lose! ${computerSelection} beats ${playerSelection}`;
             return "loss";
         }
     }
@@ -90,5 +91,6 @@ buttons.forEach((button)=>{
         console.log("Player:"+playerChoice);
         computerChoice=getComputerChoice();
         console.log("Computer:"+computerChoice);
+        playRound(playerChoice,computerChoice);
     });
 });
