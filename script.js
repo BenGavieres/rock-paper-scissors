@@ -49,42 +49,11 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
-// //Simulates a best-of-5 game
-// function game(){
-//     const NUM_ROUNDS=5;//Controls number of games
-//     let playerScore=0,computerScore=0,playerChoice,outcome;
-//     for (let i=0;i<NUM_ROUNDS;i++) {
-//         playerChoice=prompt(`Round ${i+1}: Enter your selection: `);
-//         outcome=playRound(playerChoice,getComputerChoice());
-
-//         if (outcome=="win") {
-//             playerScore++;
-//         }
-//         else if(outcome=="loss"){
-//             computerScore++;
-//         }
-//         else {
-//             playerScore++;
-//             computerScore++;
-//         }
-//     }
-//     console.log(`Final score: ${playerScore}-${computerScore}`);
-//     if (playerScore>computerScore) {
-//         console.log("You win!");
-//     }
-//     else if (playerScore<computerScore) {
-//         console.log("You lose!");
-//     }
-//     else {
-//         console.log("Draw");
-//     }
-// }
-
 let playerChoice,computerChoice,playerScore=0,computerScore=0;
+const score=document.querySelector(".score");
 
-function updateScore(outcome) {
-    const score=document.querySelector(".score");
- 
+function getScore(outcome) {
+
     if (outcome==="win") {
         playerScore++;
     }
@@ -100,19 +69,16 @@ function updateScore(outcome) {
     console.log("PS:"+playerScore);
     console.log(computerScore);
 
-    score.textContent=`${playerScore} - ${computerScore}`;
+    return`${playerScore} - ${computerScore}`;
 }
 
 const buttons=document.querySelectorAll('button');
 
 buttons.forEach((button)=>{
     button.addEventListener('click',()=>{
-        console.clear();
-        playerChoice=button.id;
-        console.log("Player:"+playerChoice);
-        computerChoice=getComputerChoice();
-        console.log("Computer:"+computerChoice);
-        updateScore(playRound(playerChoice,computerChoice));
+    playerChoice=button.id;
+    computerChoice=getComputerChoice();
+    score.textContent=getScore(playRound(playerChoice,computerChoice));
         
     });
 });
