@@ -49,8 +49,23 @@ function playRound(playerSelection,computerSelection) {
     }
 }
 
+function displayWinner() {
+    const winner=document.querySelector(".winner");
+            
+    if (playerScore>computerScore){
+        winner.textContent="You win!";
+    }
+    else if(playerScore<computerScore) {
+        winner.textContent="You lose!";
+    }
+    else {
+        winner.textContent="Draw!";
+    }   
+}
+
 let playerChoice,computerChoice,playerScore=0,computerScore=0;
 const score=document.querySelector(".score");
+const NUM_ROUNDS=5;
 
 function getScore(outcome) {
 
@@ -76,9 +91,14 @@ const buttons=document.querySelectorAll('button');
 
 buttons.forEach((button)=>{
     button.addEventListener('click',()=>{
-    playerChoice=button.id;
-    computerChoice=getComputerChoice();
-    score.textContent=getScore(playRound(playerChoice,computerChoice));
+        if (playerScore<5&&computerScore<5){
+            playerChoice=button.id;
+            computerChoice=getComputerChoice();
+            score.textContent=getScore(playRound(playerChoice,computerChoice));
+        } 
         
+        if (playerScore===5||computerScore===5){
+           displayWinner();
+        }
     });
 });
