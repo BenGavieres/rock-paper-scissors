@@ -80,7 +80,28 @@ function playRound(playerSelection,computerSelection) {
 //     }
 // }
 
-let playerChoice,computerChoice;
+let playerChoice,computerChoice,playerScore=0,computerScore=0;
+
+function updateScore(outcome) {
+    const score=document.querySelector(".score");
+ 
+    if (outcome==="win") {
+        playerScore++;
+    }
+    else if(outcome==="loss") {
+        computerScore++;
+    }
+    else {
+        playerScore++;
+        computerScore++;
+    }
+
+    console.clear();
+    console.log("PS:"+playerScore);
+    console.log(computerScore);
+
+    score.textContent=`${playerScore} - ${computerScore}`;
+}
 
 const buttons=document.querySelectorAll('button');
 
@@ -91,6 +112,7 @@ buttons.forEach((button)=>{
         console.log("Player:"+playerChoice);
         computerChoice=getComputerChoice();
         console.log("Computer:"+computerChoice);
-        playRound(playerChoice,computerChoice);
+        updateScore(playRound(playerChoice,computerChoice));
+        
     });
 });
