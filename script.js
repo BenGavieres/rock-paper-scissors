@@ -78,3 +78,17 @@ function playRound(playerSelection,computerSelection) {
 //         console.log("Draw");
 //     }
 // }
+
+let playerChoice,computerChoice;
+
+const buttons=document.querySelectorAll('button');
+
+buttons.forEach((button)=>{
+    button.addEventListener('click',()=>{
+        console.clear();
+        playerChoice=button.id;
+        console.log("Player:"+playerChoice);
+        computerChoice=getComputerChoice();
+        console.log("Computer:"+computerChoice);
+    });
+});
