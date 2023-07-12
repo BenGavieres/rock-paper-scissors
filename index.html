@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="button-container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-    </div>
-    <div class="results"> <!-- enter results here -->
-        <div class="outcome-message"></div>
-        <div class="score">0 - 0</div>
-        <div class="winner"></div>
-    </div>
+    <div class="content">
+        <div class="game-data">
+            <div class="choice">
+                <div class="small-text">Your choice</div>
+                <div class="choice-emoji player"></div>
+            </div>
 
+            <div class="score small-text">0 - 0</div>
+
+            <div class="choice">
+                <div class="small-text">Computer's choice</div>
+                <div class="choice-emoji computer"></div>
+            </div>
+        </div>
+        <div class="results">
+            <div class="outcome-message small-text">outcome msg</div>
+            
+            <div class="winner small-text">winner msg</div>
+        </div>
+        <div class="button-container">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>    
+    </div>
 
 
 

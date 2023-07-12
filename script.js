@@ -1,3 +1,8 @@
+let playerChoice,computerChoice,playerScore=0,computerScore=0;
+const outcomeMessage=document.querySelector(".outcome-message");
+const score=document.querySelector(".score");
+const NUM_ROUNDS=5;
+
 //Returns a random integer from specified bounds
 function getRandomInt(min,max) {
     return Math.floor(Math.random()*(max+1))+min;
@@ -40,11 +45,6 @@ function displayWinner() {
         winner.textContent="Draw!";
     }   
 }
-
-let playerChoice,computerChoice,playerScore=0,computerScore=0;
-const outcomeMessage=document.querySelector(".outcome-message");
-const score=document.querySelector(".score");
-const NUM_ROUNDS=5;
 
 function getScore(outcome) {
 
